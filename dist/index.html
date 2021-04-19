@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>To Do List</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link
+      rel="shortcut icon"
+      href="../src/assets/favicon.ico"
+      type="image/x-icon"
+    />
+    <script defer src="main.js"></script>
+  </head>
+  <body>
+    <header>
+      <nav>To Do List</nav>
+    </header>
+
+    <main>
+      <section id="sidebar-section">
+        <h1><i class="fas fa-folder-open"></i> Folders</h1>
+        <div id="add">+</div>
+        <form action="/action_page.php" class="hidden">
+          <label for="new-folder">
+            <strong>New Folder</strong>
+          </label>
+          <input
+            type="text"
+            id="new-folder"
+            placeholder="Enter New Folder Name"
+            name="new-folder"
+            required
+          />
+          <i type="submit" class="fas fa-check fa-3x"></i>
+        </form>
+        <div id="folders">
+          <!-- <div class="folder">
+            <h2>Gatos</h2>
+            <i class="fas fa-trash-alt fa-2x"></i>
+          </div> -->
+        </div>
+      </section>
+
+      <div id="tasks-form" class="hidden">
+        <form action="/action_page.php">
+          <h1>Enter Task</h1>
+          <label for="title">
+            <strong>Title</strong>
+          </label>
+          <input
+            type="text"
+            id="title"
+            placeholder="Enter Task Title"
+            name="title"
+            required
+          />
+          <label for="details">
+            <strong>Details</strong>
+          </label>
+          <textarea
+            id="details"
+            name="details"
+            placeholder="Enter Task Details"
+            rows="3"
+            cols="20"
+          >
+          </textarea>
+          <label for="date">
+            <strong>Due Date</strong>
+          </label>
+          <input type="date" id="date" name="date" required />
+          <label for="priority">Priority</label>
+          <select name="priority" id="priority" required>
+            <option disabled selected value>-- select an option --</option>
+            <option value="high">High</option>
+            <option value="medium">Medium</option>
+            <option value="low">Low</option>
+          </select>
+          <button type="submit" class="btn">Submit</button>
+          <button type="button" class="btn" id="cancel" onclick="closeForm()">
+            Cancel
+          </button>
+        </form>
+      </div>
+
+      <section id="tasks-section">
+        <h1>Tasks</h1>
+        <div id="tasks">
+          <!-- <div class="task" id="task1">
+            <h2>Title</h2>
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Architecto praesentium ex
+            </p>
+            <p><strong>Due:</strong></p>
+            <p><strong>Priority:</strong></p>
+            <i class="fas fa-times fa-2x"></i>
+          </div>
+          <div class="task" id="task1">
+            <h2>Title</h2>
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Architecto praesentium ex
+            </p>
+            <p><strong>Due:</strong></p>
+            <p><strong>Priority:</strong></p>
+            <i class="fas fa-times fa-2x"></i>
+          </div> -->
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

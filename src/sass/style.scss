@@ -1,0 +1,262 @@
+@use './components/fonts';
+@use './components/colors';
+
+body {
+  background-color: #47bcee;
+}
+
+header {
+  nav {
+    background-color: #004b6b;
+    color: #fff;
+    font-family: montAltBold;
+    font-size: 40px;
+    min-width: 100%;
+    padding: 8px 0;
+    text-align: center;
+  }
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+  min-height: 760px;
+  max-width: 1440px;
+
+  #sidebar-section {
+    background-color: #0081b8;
+    flex-basis: 32.5%;
+    min-height: 100vh;
+    text-align: center;
+
+    h1 {
+      border-top: colors.$fadedWhite 5px solid;
+      border-bottom: colors.$fadedWhite 5px solid;
+      color: colors.$fadedWhite;
+      font-family: montAltSemiBold;
+      font-size: 35px;
+      margin-top: 0px;
+      margin-bottom: 40px;
+      padding: 7px 0;
+    }
+
+    #add {
+      background-color: colors.$addButtonColor;
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+        rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+      border: 5px colors.$addButtonColor solid;
+      border-radius: 50%;
+      color: #fff;
+      cursor: pointer;
+      display: inline;
+      font-family: montAltBold;
+      font-size: 40px;
+      padding: 0 12.5916px;
+
+      &:hover {
+        border-color: rgb(141, 201, 247);
+        background-color: rgb(141, 201, 247);
+        transition: background-color 0.8s, border-color 0.4s;
+      }
+    }
+
+    form {
+      background-color: rgb(47, 149, 192);
+      border-radius: 10px;
+      display: grid;
+      grid-template-areas:
+        'label label label check'
+        'input input input check';
+      margin-top: 30px;
+      max-width: 100%;
+      padding: 20px;
+
+      &.hidden {
+        display: none;
+      }
+
+      label {
+        color: #fff;
+        font-family: montAltBold;
+        font-size: 20px;
+        grid-area: label;
+      }
+
+      input[type='text'] {
+        border: none;
+        border-radius: 10px;
+        font-family: montRegular;
+        grid-area: input;
+        padding: 15px;
+        margin: 5px 0 20px 0;
+        background: #eee;
+        width: 270px;
+
+        &:focus {
+          background-color: #ddd;
+          outline: none;
+        }
+      }
+
+      .fa-check {
+        color: #69beff;
+        cursor: pointer;
+        display: inline;
+        grid-area: check;
+        justify-self: end;
+        margin: auto 25px;
+
+        &:hover {
+          color: rgb(141, 201, 247);
+          transition: color 0.6s;
+        }
+      }
+    }
+
+    #folders {
+      padding: 20px;
+
+      .folder {
+        align-items: center;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+          rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+        border-radius: 10px;
+        background-color: rgba(13, 202, 240, 0.8);
+        display: grid;
+        cursor: pointer;
+        grid-template-columns: 8fr 1fr;
+        margin: 15px auto;
+        padding: 20px;
+
+        &:hover {
+          background-color: rgba(176, 196, 222, 1);
+          transition: background-color 0.3s;
+        }
+
+        h2 {
+          color: #fff;
+          font-size: 30px;
+          font-family: montAltRegular;
+          justify-self: center;
+          margin: 0 auto;
+        }
+
+        .fa-trash-alt {
+          color: rgba(220, 53, 69, 1);
+        }
+      }
+    }
+  }
+
+  #tasks-form {
+    position: absolute;
+    width: 1440px;
+    text-align: center;
+    &.hidden {
+      display: none;
+    }
+
+    form {
+      border-radius: 10px;
+      background-color: rgba(90, 176, 212, 0.9);
+      margin: 50px auto 0 auto;
+      max-width: 300px;
+      padding: 20px;
+
+      h1 {
+        color: #fff;
+        font-family: montAltBold;
+      }
+
+      label {
+        color: #fff;
+        font-family: montAltBold;
+      }
+
+      select,
+      textarea,
+      input[type='text'],
+      input[type='date'] {
+        border: none;
+        border-radius: 10px;
+        font-family: montRegular;
+        padding: 15px;
+        margin: 5px 0 20px 0;
+        background: #eee;
+        width: 90%;
+      }
+
+      select:hover,
+      textarea:focus,
+      input[type='text']:focus,
+      input[type='date']:focus {
+        background-color: #ddd;
+        outline: none;
+      }
+
+      .btn {
+        padding: 12px 20px;
+        background-color: #0081b8;
+        color: #fff;
+        cursor: pointer;
+        width: 100%;
+        margin-bottom: 15px;
+        opacity: 0.8;
+        &:hover {
+          opacity: 1;
+        }
+        &.cancel {
+          background-color: #b30000;
+        }
+      }
+    }
+  }
+
+  #tasks-section {
+    align-items: center;
+    display: flex;
+    flex-basis: 100%;
+    flex-direction: column;
+
+    h1 {
+      color: colors.$fadedWhite;
+      font-family: montAltBold;
+      font-size: 45px;
+      margin-top: 50px;
+      margin-bottom: 0;
+    }
+
+    #tasks {
+      .task {
+        background-color: #6c757d;
+        border-radius: 10px;
+        box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+          rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+        color: colors.$fadedWhite;
+        font-family: montAltRegular;
+        padding: 20px;
+        margin: 20px auto;
+        width: 700px;
+
+        h2 {
+          font-size: 27.5px;
+          margin: 0 auto 22px auto;
+          text-align: center;
+        }
+
+        .fa-times {
+          color: rgba(220, 53, 69, 1);
+          cursor: pointer;
+          display: block;
+          margin: 0 auto;
+          text-align: center;
+
+          &:hover {
+            color: rgba(220, 53, 69, 0.8);
+          }
+        }
+      }
+    }
+  }
+}
