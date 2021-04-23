@@ -1,0 +1,289 @@
+@font-face {
+  font-family: montAltBold;
+  src: url("../assets/fonts/Montserrat_Alternates/MontserratAlternates-Bold.ttf");
+}
+@font-face {
+  font-family: montAltRegular;
+  src: url("../assets/fonts/Montserrat_Alternates/MontserratAlternates-Regular.ttf");
+}
+@font-face {
+  font-family: montRegular;
+  src: url("../assets/fonts/Montserrat/Montserrat-Regular.ttf");
+}
+@font-face {
+  font-family: montAltSemiBold;
+  src: url("../assets/fonts/Montserrat_Alternates/MontserratAlternates-SemiBold.ttf");
+}
+body {
+  background-color: #47bcee;
+}
+
+header nav {
+  background-color: #004b6b;
+  color: #fff;
+  font-family: montAltBold;
+  font-size: 40px;
+  min-width: 100%;
+  padding: 8px 0;
+  text-align: center;
+}
+
+#tasks-form {
+  background-color: rgba(255, 230, 230, 0.5);
+  position: absolute;
+  margin: 0 auto;
+  min-height: 100%;
+  text-align: center;
+  width: 100%;
+}
+#tasks-form.hidden {
+  display: none;
+}
+#tasks-form form {
+  border-radius: 10px;
+  background-color: rgba(90, 176, 212, 0.9);
+  display: block;
+  margin: 50px auto;
+  max-height: 661px;
+  width: 300px;
+  padding: 20px;
+  position: relative;
+}
+#tasks-form form h1 {
+  color: #fff;
+  font-family: montAltBold;
+}
+#tasks-form form label {
+  color: #fff;
+  font-family: montAltBold;
+}
+#tasks-form form select,
+#tasks-form form textarea,
+#tasks-form form input[type=text],
+#tasks-form form input[type=date] {
+  border: none;
+  border-radius: 10px;
+  font-family: montRegular;
+  padding: 15px;
+  margin: 5px 0 20px 0;
+  background: #eee;
+  width: 90%;
+}
+#tasks-form form select:hover,
+#tasks-form form textarea:focus,
+#tasks-form form input[type=text]:focus,
+#tasks-form form input[type=date]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+#tasks-form form .btn {
+  padding: 12px 20px;
+  background-color: #0081b8;
+  color: #fff;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom: 15px;
+  opacity: 0.8;
+}
+#tasks-form form .btn:hover {
+  opacity: 1;
+}
+#tasks-form form .btn.cancel {
+  background-color: #b30000;
+}
+
+main {
+  display: grid;
+  margin: auto;
+  min-height: 760px;
+  max-width: 1440px;
+  grid-template-areas: "sidebar tasks tasks tasks";
+}
+main #sidebar-section {
+  background-color: #0081b8;
+  grid-area: sidebar;
+  min-height: 100vh;
+  width: 350px;
+  text-align: center;
+}
+main #sidebar-section h1 {
+  border-top: #ffe4e4 5px solid;
+  border-bottom: #ffe4e4 5px solid;
+  color: #ffe4e4;
+  font-family: montAltSemiBold;
+  font-size: 35px;
+  margin-top: 0px;
+  margin-bottom: 40px;
+  padding: 7px 0;
+}
+main #sidebar-section #add {
+  background-color: #69beff;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+  border-radius: 50%;
+  color: #fff;
+  cursor: pointer;
+  display: inline;
+  font-family: montAltBold;
+  font-size: 40px;
+  padding: 0 12.5916px;
+}
+main #sidebar-section #add:hover {
+  background-color: #8dc9f7;
+  transition: background-color 0.4s, border-color 0.4s;
+}
+main #sidebar-section form {
+  align-items: center;
+  background-color: #2f95c0;
+  border-radius: 10px;
+  display: grid;
+  grid-template-areas: "label label label submit" "input input input cancel";
+  margin-top: 30px;
+  max-width: 100%;
+  padding: 20px;
+}
+main #sidebar-section form.hidden {
+  display: none;
+}
+main #sidebar-section form label {
+  color: #fff;
+  font-family: montAltBold;
+  font-size: 20px;
+  grid-area: label;
+}
+main #sidebar-section form input[type=text] {
+  border: none;
+  border-radius: 10px;
+  font-family: montRegular;
+  grid-area: input;
+  padding: 15px;
+  margin: 5px 0 5px 0;
+  background: #eee;
+  width: 270px;
+}
+main #sidebar-section form input[type=text]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+main #sidebar-section form #folder-submit {
+  background-color: #2f95c0;
+  border: 2px solid #4caf50;
+  border-radius: 5px;
+  cursor: pointer;
+  grid-area: submit;
+  justify-self: end;
+  margin: auto 25px;
+  transition-duration: 0.4s;
+}
+main #sidebar-section form #folder-submit:hover {
+  background-color: #4caf50;
+  color: #69beff;
+}
+main #sidebar-section form #folder-submit .fa-check {
+  pointer-events: none;
+}
+main #sidebar-section form #cancel {
+  background-color: #2f95c0;
+  border: 2px solid #000;
+  border-radius: 5px;
+  color: #000;
+  cursor: pointer;
+  display: block;
+  grid-area: cancel;
+  justify-self: end;
+  margin: auto 25px;
+  padding-left: 13px;
+  padding-right: 13px;
+  transition-duration: 0.4s;
+}
+main #sidebar-section form #cancel:hover {
+  background-color: #000;
+  color: #dc3545;
+}
+main #sidebar-section form #cancel .fa-window-close {
+  pointer-events: none;
+}
+main #sidebar-section form #cancel svg {
+  padding: auto 14px;
+}
+main #sidebar-section #folders {
+  padding: 20px;
+}
+main #sidebar-section #folders .folder {
+  align-items: center;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  border-radius: 10px;
+  background-color: rgba(13, 202, 240, 0.8);
+  color: #fff;
+  cursor: pointer;
+  display: grid;
+  font-size: 30px;
+  font-family: montAltRegular;
+  grid-template-columns: 8fr 1fr;
+  margin: 15px auto;
+  padding: 20px;
+}
+main #sidebar-section #folders .folder:hover {
+  background-color: lightsteelblue;
+  transition: background-color 0.3s;
+}
+main #sidebar-section #folders .folder .fa-trash-alt {
+  color: #dc3545;
+  pointer-events: none;
+}
+main #tasks-section {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  grid-area: tasks;
+}
+main #tasks-section h1 {
+  color: #ffe4e4;
+  font-family: montAltBold;
+  font-size: 45px;
+  margin-top: 50px;
+  margin-bottom: 0;
+}
+main #tasks-section button {
+  /* background-color: */
+  background-color: #e7e7e7;
+  border: 2px solid #e7e7e7;
+  border-radius: 5px;
+  color: #000;
+  cursor: pointer;
+  display: inline-block;
+  font-family: montAltRegular;
+  font-size: 16px;
+  margin: 15px auto;
+  padding: 10px 15px;
+  transition-duration: 0.4s;
+}
+main #tasks-section button:hover {
+  background-color: #47bcee;
+}
+main #tasks-section #tasks .task {
+  background-color: #6c757d;
+  border-radius: 10px;
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+  color: #ffe4e4;
+  font-family: montAltRegular;
+  padding: 20px;
+  margin: 20px auto;
+  width: 700px;
+}
+main #tasks-section #tasks .task h2 {
+  font-size: 27.5px;
+  margin: 0 auto 22px auto;
+  text-align: center;
+}
+main #tasks-section #tasks .task .fa-times {
+  color: #dc3545;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+main #tasks-section #tasks .task .fa-times:hover {
+  color: rgba(220, 53, 69, 0.8);
+}
+
+/*# sourceMappingURL=style.css.map */

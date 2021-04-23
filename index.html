@@ -16,11 +16,58 @@
       <nav>To Do List</nav>
     </header>
 
+    <div id="tasks-form" class="hidden">
+      <form action="/action_page.php" id="tasks-form">
+        <h1>Enter Task</h1>
+        <label for="title">
+          <strong>Title</strong>
+        </label>
+        <input
+          type="text"
+          id="title"
+          placeholder="Enter Task Title"
+          name="title"
+          required
+        />
+        <label for="details">
+          <strong>Details</strong>
+        </label>
+        <textarea id="details" name="details" rows="3" cols="20"> </textarea>
+        <label for="date">
+          <strong>Due Date</strong>
+        </label>
+        <input type="date" id="date" name="date" required />
+        <label for="priority">Priority</label>
+        <select name="priority" id="priority" required>
+          <option disabled selected value>-- select an option --</option>
+          <option value="high">High</option>
+          <option value="medium">Medium</option>
+          <option value="low">Low</option>
+        </select>
+        <button type="submit" class="btn">Submit</button>
+        <button
+          type="button"
+          class="btn"
+          id="cancel"
+          onclick="document.querySelector('#tasks-form').classList.add('hidden')"
+        >
+          Cancel
+        </button>
+      </form>
+    </div>
+
     <main>
       <section id="sidebar-section">
         <h1><i class="fas fa-folder-open"></i> Folders</h1>
-        <div id="add">+</div>
-        <form action="/action_page.php" class="hidden">
+        <div
+          type="button"
+          class="btn"
+          id="add"
+          onclick="document.querySelector('#sidebar-section > form').classList.remove('hidden')"
+        >
+          +
+        </div>
+        <form action="#" class="hidden">
           <label for="new-folder">
             <strong>New Folder</strong>
           </label>
@@ -31,60 +78,37 @@
             name="new-folder"
             required
           />
-          <i type="submit" class="fas fa-check fa-3x"></i>
+          <button type="submit" class="btn" id="folder-submit">
+            <i class="fas fa-check fa-2x"></i>
+          </button>
+          <button
+            type="button"
+            class="btn"
+            id="cancel"
+            onclick="document.querySelector('#sidebar-section > form').className = 'hidden'"
+          >
+            <i class="fas fa-times fa-2x"></i>
+          </button>
         </form>
         <div id="folders">
-          <!-- <div class="folder">
-            <h2>Gatos</h2>
-            <i class="fas fa-trash-alt fa-2x"></i>
-          </div> -->
+          <div class="folder" id="default-folder">
+            Gatos
+            <div class="btn" id="remove">
+              <i class="fas fa-trash-alt fa-1x"></i>
+            </div>
+          </div>
         </div>
       </section>
 
-      <div id="tasks-form" class="hidden">
-        <form action="/action_page.php">
-          <h1>Enter Task</h1>
-          <label for="title">
-            <strong>Title</strong>
-          </label>
-          <input
-            type="text"
-            id="title"
-            placeholder="Enter Task Title"
-            name="title"
-            required
-          />
-          <label for="details">
-            <strong>Details</strong>
-          </label>
-          <textarea
-            id="details"
-            name="details"
-            placeholder="Enter Task Details"
-            rows="3"
-            cols="20"
-          >
-          </textarea>
-          <label for="date">
-            <strong>Due Date</strong>
-          </label>
-          <input type="date" id="date" name="date" required />
-          <label for="priority">Priority</label>
-          <select name="priority" id="priority" required>
-            <option disabled selected value>-- select an option --</option>
-            <option value="high">High</option>
-            <option value="medium">Medium</option>
-            <option value="low">Low</option>
-          </select>
-          <button type="submit" class="btn">Submit</button>
-          <button type="button" class="btn" id="cancel" onclick="closeForm()">
-            Cancel
-          </button>
-        </form>
-      </div>
-
       <section id="tasks-section">
         <h1>Tasks</h1>
+        <button
+          type="button"
+          class="btn"
+          onclick="document.querySelector('#tasks-form').classList.remove('hidden')"
+        >
+          Add Task
+        </button>
         <div id="tasks">
           <!-- <div class="task" id="task1">
             <h2>Title</h2>
