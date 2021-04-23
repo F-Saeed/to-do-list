@@ -45,9 +45,6 @@ module.exports = {
               sourceMap: true,
               // Prefer `dart-sass`
               implementation: require('sass'),
-              sassOptions: {
-                fiber: require('fibers'),
-              },
             },
           },
         ],
