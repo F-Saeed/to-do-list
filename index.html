@@ -17,7 +17,7 @@
     </header>
 
     <div id="tasks-form" class="hidden">
-      <form action="/action_page.php" id="tasks-form">
+      <form id="tasks-form">
         <h1>Enter Task</h1>
         <label for="title">
           <strong>Title</strong>
@@ -25,14 +25,22 @@
         <input
           type="text"
           id="title"
-          placeholder="Enter Task Title"
+          placeholder=" maxlength: 40 characters"
           name="title"
+          maxlength="40"
           required
         />
         <label for="details">
           <strong>Details</strong>
         </label>
-        <textarea id="details" name="details" rows="3" cols="20"> </textarea>
+        <textarea
+          id="details"
+          name="details"
+          maxlength="150"
+          placeholder="maxlength: 150 characters"
+          rows="3"
+          cols="20"
+        ></textarea>
         <label for="date">
           <strong>Due Date</strong>
         </label>
@@ -40,19 +48,12 @@
         <label for="priority">Priority</label>
         <select name="priority" id="priority" required>
           <option disabled selected value>-- select an option --</option>
-          <option value="high">High</option>
-          <option value="medium">Medium</option>
-          <option value="low">Low</option>
+          <option value="High">High</option>
+          <option value="Medium">Medium</option>
+          <option value="Low">Low</option>
         </select>
         <button type="submit" class="btn">Submit</button>
-        <button
-          type="button"
-          class="btn"
-          id="cancel"
-          onclick="document.querySelector('#tasks-form').classList.add('hidden')"
-        >
-          Cancel
-        </button>
+        <button type="button" class="btn" id="cancel-task">Cancel</button>
       </form>
     </div>
 
@@ -61,39 +62,34 @@
         <h1><i class="fas fa-folder-open"></i> Folders</h1>
         <div
           type="button"
-          class="btn"
-          id="add"
+          id="add-folder"
           onclick="document.querySelector('#sidebar-section > form').classList.remove('hidden')"
         >
           +
         </div>
-        <form action="#" class="hidden">
+        <form class="hidden">
           <label for="new-folder">
             <strong>New Folder</strong>
           </label>
           <input
             type="text"
             id="new-folder"
-            placeholder="Enter New Folder Name"
+            placeholder="maxlength: 20 characters"
+            maxlength="20"
             name="new-folder"
             required
           />
           <button type="submit" class="btn" id="folder-submit">
             <i class="fas fa-check fa-2x"></i>
           </button>
-          <button
-            type="button"
-            class="btn"
-            id="cancel"
-            onclick="document.querySelector('#sidebar-section > form').className = 'hidden'"
-          >
+          <button type="button" class="btn" id="cancel-folder">
             <i class="fas fa-times fa-2x"></i>
           </button>
         </form>
         <div id="folders">
           <div class="folder" id="default-folder">
-            Gatos
-            <div class="btn" id="remove">
+            Default Folder
+            <div class="remove-folder">
               <i class="fas fa-trash-alt fa-1x"></i>
             </div>
           </div>
@@ -102,34 +98,47 @@
 
       <section id="tasks-section">
         <h1>Tasks</h1>
-        <button
-          type="button"
-          class="btn"
-          onclick="document.querySelector('#tasks-form').classList.remove('hidden')"
-        >
-          Add Task
-        </button>
-        <div id="tasks">
-          <!-- <div class="task" id="task1">
-            <h2>Title</h2>
-            <p>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-              Architecto praesentium ex
-            </p>
-            <p><strong>Due:</strong></p>
-            <p><strong>Priority:</strong></p>
-            <i class="fas fa-times fa-2x"></i>
+        <button type="button" id="add-task">Add Task</button>
+        <div id="tasks" data-index="default folder">
+          <div
+            class="task"
+            id="93f13799-916b-4d77-83a7-c5a3b9e67d85"
+            data-priority="Medium"
+          >
+            <h2>sdffds</h2>
+            <p>fsdf</p>
+            <p><strong>Due:</strong> 2021-05-25</p>
+            <p><strong>priority:</strong> Medium</p>
+            <button type="button" class="remove-task">
+              <i class="fas fa-times fa-2x"></i>
+            </button>
           </div>
-          <div class="task" id="task1">
-            <h2>Title</h2>
-            <p>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-              Architecto praesentium ex
-            </p>
-            <p><strong>Due:</strong></p>
-            <p><strong>Priority:</strong></p>
-            <i class="fas fa-times fa-2x"></i>
-          </div> -->
+          <div
+            class="task"
+            id="93f13799-916b-4d77-83a7-c5a3b9e67d85"
+            data-priority="Low"
+          >
+            <h2>sdffds</h2>
+            <p>fsdf</p>
+            <p><strong>Due:</strong> 2021-05-25</p>
+            <p><strong>priority:</strong> Low</p>
+            <button type="button" class="remove-task">
+              <i class="fas fa-times fa-2x"></i>
+            </button>
+          </div>
+          <div
+            class="task"
+            id="93f13799-916b-4d77-83a7-c5a3b9e67d85"
+            data-priority="High"
+          >
+            <h2>sdffds</h2>
+            <p>fsdf</p>
+            <p><strong>Due:</strong> 2021-05-25</p>
+            <p><strong>priority:</strong> High</p>
+            <button type="button" class="remove-task">
+              <i class="fas fa-times fa-2x"></i>
+            </button>
+          </div>
         </div>
       </section>
     </main>
