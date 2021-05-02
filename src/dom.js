@@ -63,8 +63,8 @@ const removeTask = (tasks) => (event) => {
     const parentID = event.target.parentElement.id;
 
     tasks.removeChild(parent);
-    delete foldersObj[parentID];
-    localStorage.removeItem(parentID);
+    delete foldersObj[folderID].tasks[parentID];
+    localStorage.setItem(folderID, JSON.stringify(foldersObj[folderID]));
   }
 };
 
