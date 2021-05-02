@@ -69,7 +69,7 @@ header {
       outline: none;
     }
 
-    .btn {
+    button {
       padding: 12px 20px;
       background-color: #0081b8;
       color: #fff;
@@ -80,7 +80,7 @@ header {
       &:hover {
         opacity: 1;
       }
-      &.cancel {
+      &#cancel-task {
         background-color: #b30000;
       }
     }
@@ -92,13 +92,12 @@ main {
   margin: auto;
   min-height: 760px;
   max-width: 1440px;
-  grid-template-areas: 'sidebar tasks tasks tasks';
+  grid-template-columns: 350px 1fr;
 
   #sidebar-section {
     background-color: #0081b8;
-    grid-area: sidebar;
     min-height: 100vh;
-    width: 350px;
+    max-width: 350px;
     text-align: center;
 
     h1 {
@@ -112,7 +111,7 @@ main {
       padding: 7px 0;
     }
 
-    #add {
+    #add-folder {
       background-color: colors.$addButtonColor;
       box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
         rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
@@ -168,7 +167,7 @@ main {
         }
       }
 
-      #folder-submit {
+      button#folder-submit {
         background-color: rgb(47, 149, 192);
         border: 2px solid #4caf50;
         border-radius: 5px;
@@ -187,7 +186,7 @@ main {
         }
       }
 
-      #cancel {
+      button#cancel-folder {
         background-color: rgb(47, 149, 192);
         border: 2px solid #000;
         border-radius: 5px;
@@ -238,6 +237,14 @@ main {
           transition: background-color 0.3s;
         }
 
+        &.selected {
+          background-color: rgba(13, 202, 240, 1);
+        }
+
+        &.hidden {
+          display: none;
+        }
+
         .fa-trash-alt {
           color: rgba(220, 53, 69, 1);
           pointer-events: none;
@@ -250,7 +257,6 @@ main {
     align-items: center;
     display: flex;
     flex-direction: column;
-    grid-area: tasks;
 
     h1 {
       color: colors.$fadedWhite;
@@ -260,14 +266,14 @@ main {
       margin-bottom: 0;
     }
 
-    button {
+    button#add-task {
       /* background-color: */
       background-color: #e7e7e7;
       border: 2px solid #e7e7e7;
       border-radius: 5px;
       color: #000;
       cursor: pointer;
-      display: inline-block;
+      display: block;
       font-family: montAltRegular;
       font-size: 16px;
       margin: 15px auto;
@@ -281,15 +287,26 @@ main {
 
     #tasks {
       .task {
-        background-color: #6c757d;
         border-radius: 10px;
         box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
           rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
-        color: colors.$fadedWhite;
+        color: #fff;
         font-family: montAltRegular;
         padding: 20px;
         margin: 20px auto;
         width: 700px;
+
+        &[data-priority='Low'] {
+          background-color: #254d32;
+        }
+
+        &[data-priority='Medium'] {
+          background-color: #b69802;
+        }
+
+        &[data-priority='High'] {
+          background-color: #b4182d;
+        }
 
         h2 {
           font-size: 27.5px;
@@ -297,15 +314,21 @@ main {
           text-align: center;
         }
 
-        .fa-times {
-          color: rgba(220, 53, 69, 1);
+        button.remove-task {
+          border: 2px solid #e7e7e7;
+          border-radius: 10px;
           cursor: pointer;
           display: block;
           margin: 0 auto;
-          text-align: center;
+          transition-duration: 0.4s;
 
           &:hover {
-            color: rgba(220, 53, 69, 0.8);
+            background-color: #6c757d;
+          }
+
+          .fa-times {
+            color: rgba(220, 53, 69, 1);
+            pointer-events: none;
           }
         }
       }
