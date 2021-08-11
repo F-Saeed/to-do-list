@@ -23,6 +23,11 @@ module.exports = {
         },
       },
       {
+        test: /\.ts$/,
+        use: 'ts-loader',
+        include: [path.resolve(__dirname, 'src')],
+      },
+      {
         test: /\.css$/i,
         use: ['style-loader', 'css-loader'],
       },
@@ -32,21 +37,9 @@ module.exports = {
           // Creates `style` nodes from JS strings
           'style-loader',
           // Translates CSS into CommonJS
-          {
-            loader: 'css-loader',
-            options: {
-              sourceMap: true,
-            },
-          },
-          {
-            // Compiles Sass to CSS
-            loader: 'sass-loader',
-            options: {
-              sourceMap: true,
-              // Prefer `dart-sass`
-              implementation: require('sass'),
-            },
-          },
+          'css-loader',
+          // Compiles Sass to CSS
+          'sass-loader',
         ],
       },
       {

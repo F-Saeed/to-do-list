@@ -8,6 +8,7 @@ const storagePresent = (recreateFolders, recreateTasks, obj) => {
     recreateTasks('default-folder');
     return;
   }
+
   if (localStorage.length) {
     const startingFolder = document.querySelector('#default-folder');
     startingFolder.classList.add('hidden');
